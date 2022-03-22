@@ -1,0 +1,28 @@
+# trained model for testing
+model_file = "/data/output/shoes-vs-feet/model_shoes-vs-feet.h5"
+
+# output of testing data with probabilities
+out_res = "/data/output/shoes-vs-feet/res_test_additional.csv"
+
+# output of testing data performance metrics
+out_metric = "/data/output/shoes-vs-feet/metric_test_additional.csv"
+
+#
+# images section is used for preparing the data for training the model
+#
+[images]
+#
+# input data containing all the features
+#
+folders = ["/data/feet-vs-shoes/bare_feet",
+    "/data/feet-vs-shoes/with_shoes"]
+labels = ["feet", "shoes"]
+
+# target image size in number of pixels.
+image_size = 256
+
+# Image normalization setup same as the one in training config
+image_normalize = false
+
+# Image padding setup same as the one in training config
+image_padding = false

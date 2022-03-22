@@ -1,0 +1,55 @@
+# model training related config
+# output model file
+out_model = "/data/output/shoes-vs-feet/model_shoes-vs-feet.h5"
+
+# output of testing data with probabilities
+out_res_test = "/data/output/shoes-vs-feet/res_test.csv"
+
+# output of testing data performance metrics
+out_metric_test = "/data/output/shoes-vs-feet/metric_test.csv"
+
+# output of testing data performance metrics
+out_history = "/data/output/shoes-vs-feet/loss_history_in-training.csv"
+
+# learning rate for optimizer
+learning_rate = 0.0001
+nepoch = 10
+
+# Possible model names from B0 to B7: "EfficientNetB7"
+# If not set the pre-trained model is B0
+pre_model_name = "EfficientNetB1"
+
+
+#
+# images section is used for preparing the data for training the model
+#
+[images]
+# input images for multiple classes and their corresponding lables.
+# in this example, shoes has index 0 and feet index 1.
+# The number of classes is at least 2, but no upper limit, aka multiple classes are possible.
+folders = ["/data/shoes-vs-feet/with_shoes", "/data/shoes-vs-feet/bare_feet"]
+labels = ["shoes", "feet"]
+
+# fraction of the images used for model training, the rest is for model testing
+fraction_train = 0.8
+
+#
+# if need to further split the test part into test and validation:
+# fraction_valid = 0.5
+#
+
+# random seed, changing this one might slightly change the model performance
+random_state = 12345678
+
+#
+# target image size in number of pixels.
+image_size = 256
+
+# image normalize to divide values with 255.
+# Note: For EfficientNet models this should be off, because the input must be
+#   [0, 255] and the normalization is handled by the model itself.
+# image_normalize = true
+image_normalize = false
+
+# image padding or cropping to the corresponding size in pixels
+image_padding = false

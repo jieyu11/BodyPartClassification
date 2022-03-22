@@ -1,0 +1,19 @@
+# assuming: -v /home/jie/3dselfie/3DSelfie/data/openimages:/openimages in docker run
+# and: -v /home/jie/Workarea/tron/setup/gepetto/modules_internal/BodyPartClassification/OpenImagesFilter:/workarea
+# and: -v /home/jie/3dselfie/3DSelfie/jie/datasets/openimages:/output
+
+label_object_filename = "/openimages/meta-info/class-descriptions-boxable.csv"
+object_annotation_filename = "/openimages/meta-info/oidv6-train-annotations-vrd.csv"
+remove_duplicate = false
+#
+# list of folders to be included in the outputs
+#
+image_input_dir = "/openimages/images/train_all"
+image_output_dir = "/output/woman-vs-man/train_all"
+
+# text file to include the images id
+output_image_filtered = "/output/woman-vs-man/image_filtered.csv"
+
+# set the number of images in the output, e.g. 100
+# if n_images <= 0, then all images are used.
+n_images = -1  
